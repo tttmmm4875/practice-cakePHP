@@ -1,0 +1,29 @@
+#version: '3.3'
+services:
+  db-for-cakephp:
+    image: mysql:latest # 最新バージョンを使用
+    container_name: db-for-cakephp
+
+    environment:
+      MYSQL_ROOT_USER: ${ROOTUSER}
+      MYSQL_ROOT_PASSWORD: ${ROOTPASS}
+      MYSQL_DATABASE: ${DATABASE}
+      MYSQL_USER: ${USERNAME}
+      MYSQL_PASSWORD: ${USERPASS}
+      TZ: 'Asia/Tokyo'
+      MYSQL_INITDB_SKIP_TZINFO: 1
+      # MYSQL_DATABASE: ${DATABASE}
+      # MYSQL_USER: ${USERNAME}
+      # MYSQL_PASSWORD: ${USERPASS}
+      # TZ: 'Asia/Tokyo'
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_SQL_MODE: "ONLY_FULL_GROUP_BY,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - cakephp-db-volume:/var/lib/mysql
+
+volumes:
+  cakephp-db-volume:

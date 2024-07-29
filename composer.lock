@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "cakephp/cakephp",
-            "version": "5.0.9",
+            "version": "5.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "c43c253efeeda1fd2b5f5c9aca329c7cd383bc6b"
+                "reference": "f0b88ba6cc42e319fd012a32e96af7b3826fefdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/c43c253efeeda1fd2b5f5c9aca329c7cd383bc6b",
-                "reference": "c43c253efeeda1fd2b5f5c9aca329c7cd383bc6b",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/f0b88ba6cc42e319fd012a32e96af7b3826fefdc",
+                "reference": "f0b88ba6cc42e319fd012a32e96af7b3826fefdc",
                 "shasum": ""
             },
             "require": {
@@ -120,12 +120,11 @@
                 "validation"
             ],
             "support": {
-                "forum": "https://stackoverflow.com/tags/cakephp",
-                "irc": "irc://irc.freenode.org/cakephp",
+                "forum": "https://discourse.cakephp.org/",
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/cakephp"
             },
-            "time": "2024-06-24T02:51:16+00:00"
+            "time": "2024-07-28T16:58:12+00:00"
         },
         {
             "name": "cakephp/chronos",

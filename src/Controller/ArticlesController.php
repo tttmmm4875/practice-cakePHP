@@ -19,13 +19,18 @@ class ArticlesController extends AppController
 
     public function view($slug = null)
     {
-        $article = $this->Articles->findBySlug($slug)->firstOrFail();
+        // Update retrieving tags with contain()
+        $article = $this->Articles
+            ->findBySlug($slug)
+            ->contain('Tags')
+            ->firstOrFail();
+            
         $this->set(compact('article'));
     }
     
     public function add()
     {
-        $article = $this->Articles->newEmptyEntity();
+        $article = $this->Articles->newEmptyEntity(); 
         if ($this->request->is('post')) {
             $article = $this->Articles->patchEntity($article, $this->request->getData());
 
@@ -39,12 +44,22 @@ class ArticlesController extends AppController
             }
             $this->Flash->error(__('Unable to add your article.'));
         }
+        // タグのリストを取得
+        $tags = $this->Articles->Tags->find('list')->all();
+
+        // ビューコンテキストにtagsをセット
+        $this->set('tags', $tags);
+
         $this->set('article', $article);
     }
 
     public function edit($slug)
     {
-        $article = $this->Articles->findBySlug($slug)->firstOrFail();
+        $article = $this->Articles
+            ->findBySlug($slug)
+            ->contain('Tags') // 関連づけられた Tags を読み込む
+            ->firstOrFail();
+
         if ($this->request->is(['post', 'put'])) {
             $this->Articles->patchEntity($article, $this->request->getData());
             if ($this->Articles->save($article)) {
@@ -54,6 +69,12 @@ class ArticlesController extends AppController
             }
             $this->Flash->error(__('Unable to update your article.'));
         }
+
+        // タグのリストを取得
+        $tags = $this->Articles->Tags->find('list')->all();
+
+        // ビューコンテキストに tags をセット
+        $this->set('tags', $tags);
 
         $this->set('article', $article);
     }
@@ -69,6 +90,43 @@ class ArticlesController extends AppController
             return $this->redirect(['action' => 'index']);
         }
     }
+
+    public function tags()
+    {
+        // 'pass' キーは CakePHP によって提供され、リクエストに渡された
+        // 全ての URL パスセグメントを含みます。
+        $tags = $this->request->getParam('pass');
+
+        // ArticlesTable を使用してタグ付きの記事を検索します。
+        $articles = $this->Articles->find('tagged', [
+            'tags' => $tags
+        ])
+        ->all();
+
+        // 変数をビューテンプレートのコンテキストに渡します。
+        $this->set([
+            'articles' => $articles,
+            'tags' => $tags
+        ]);
+    }
+
+    /*
+    渡された引数はメソッドのパラメーターとして渡されるので、 PHP の可変引数を使ってアクションを記述することもできます。
+    public function tags(...$tags)
+    {
+        // ArticlesTable を使用してタグ付きの記事を検索します。
+        $articles = $this->Articles->find('tagged', [
+            'tags' => $tags
+        ])
+        ->all();
+
+        // 変数をビューテンプレートのコンテキストに渡します。
+        $this->set([
+            'articles' => $articles,
+            'tags' => $tags
+        ]);
+    }
+    */
 
 }
 

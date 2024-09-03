@@ -2194,16 +2194,16 @@
         },
         {
             "name": "cakephp/cakephp-codesniffer",
-            "version": "5.1.2",
+            "version": "5.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp-codesniffer.git",
-                "reference": "f316cf488d699a08a2269f5fdc0b084992fd4ba5"
+                "reference": "04860c9746810d22d02d014deeb57bc80bf57804"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp-codesniffer/zipball/f316cf488d699a08a2269f5fdc0b084992fd4ba5",
-                "reference": "f316cf488d699a08a2269f5fdc0b084992fd4ba5",
+                "url": "https://api.github.com/repos/cakephp/cakephp-codesniffer/zipball/04860c9746810d22d02d014deeb57bc80bf57804",
+                "reference": "04860c9746810d22d02d014deeb57bc80bf57804",
                 "shasum": ""
             },
             "require": {
@@ -2243,7 +2243,7 @@
                 "issues": "https://github.com/cakephp/cakephp-codesniffer/issues",
                 "source": "https://github.com/cakephp/cakephp-codesniffer"
             },
-            "time": "2024-08-03T16:15:44+00:00"
+            "time": "2024-08-13T10:21:08+00:00"
         },
         {
             "name": "cakephp/debug_kit",
@@ -3551,16 +3551,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.29.1",
+            "version": "1.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "fcaefacf2d5c417e928405b71b400d4ce10daaf4"
+                "reference": "5ceb0e384997db59f38774bf79c2a6134252c08f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/fcaefacf2d5c417e928405b71b400d4ce10daaf4",
-                "reference": "fcaefacf2d5c417e928405b71b400d4ce10daaf4",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/5ceb0e384997db59f38774bf79c2a6134252c08f",
+                "reference": "5ceb0e384997db59f38774bf79c2a6134252c08f",
                 "shasum": ""
             },
             "require": {
@@ -3592,9 +3592,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.29.1"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.30.0"
             },
-            "time": "2024-05-31T08:52:43+00:00"
+            "time": "2024-08-29T09:54:52+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

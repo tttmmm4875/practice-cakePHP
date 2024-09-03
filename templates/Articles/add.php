@@ -11,3 +11,4 @@
     echo $this->Form->button(__('Save Article'));
     echo $this->Form->end();
 ?>
+<?= $this->Html->link('一覧に戻る', ['action' => '/']) ?>

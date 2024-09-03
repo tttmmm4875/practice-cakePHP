@@ -34,6 +34,10 @@
                     <th><?= __('Modified') ?></th>
                     <td><?= h($user->modified) ?></td>
                 </tr>
+                <tr>
+                    <th><?= __('Password') ?></th>
+                    <td><?= h($user->password) ?></td>
+                </tr>
             </table>
             <div class="related">
                 <h4><?= __('Related Articles') ?></h4>

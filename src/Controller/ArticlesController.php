@@ -12,7 +12,6 @@ class ArticlesController extends AppController
 
     public function index()
     {
-        echo "Hello!!!!\n";
         $articles = $this->paginate($this->Articles);
         $this->set(compact('articles'));
     }
@@ -20,6 +19,7 @@ class ArticlesController extends AppController
     public function view($slug = null)
     {
         // Update retrieving tags with contain()
+        print "$slug\n";
         $article = $this->Articles
             ->findBySlug($slug)
             ->contain('Tags')
@@ -30,8 +30,10 @@ class ArticlesController extends AppController
     
     public function add()
     {
+        $this->getDate("add");
         $article = $this->Articles->newEmptyEntity(); 
         if ($this->request->is('post')) {
+            $this->getDate("add save");
             $article = $this->Articles->patchEntity($article, $this->request->getData());
 
             // user_id の決め打ちは一時的なもので、あとで認証を構築する際に削除されます。
@@ -127,6 +129,12 @@ class ArticlesController extends AppController
         ]);
     }
     */
+
+    public function getDate(string $str) {
+        $current_time = date('Y-m-d H:i:s');
+        echo $current_time."\t".$str;
+        $this->log($current_time."\t".$str, "debug");
+    }
 
 }
 
